@@ -1,9 +1,54 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>JSK People</title>
+
+  <!-- JSON-LD pour aider Google à comprendre les offres (prix indicatifs) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "OfferCatalog",
+    "name": "Offres JSK People",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "name": "ESSENTIEL",
+        "description": "Clarifier, apaiser, structurer — Diagnostic RH & managérial, restitution, plan d'actions",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "price": 900,
+          "priceCurrency": "EUR",
+          "valueAddedTaxIncluded": false
+        }
+      },
+      {
+        "@type": "Offer",
+        "name": "STRUCTURE",
+        "description": "Accompagner et faire évoluer durablement — plan d'actions, ateliers, accompagnement managérial",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "price": 2400,
+          "priceCurrency": "EUR",
+          "valueAddedTaxIncluded": false
+        }
+      },
+      {
+        "@type": "Offer",
+        "name": "PARTENAIRE RH",
+        "description": "Appui RH externalisé, accompagnement dirigeant et suivi continu",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "price": 1200,
+          "priceCurrency": "EUR",
+          "valueAddedTaxIncluded": false
+        }
+      }
+    ]
+  }
+  </script>
+
   <style>
     body {
       margin: 0;
@@ -18,66 +63,90 @@
       align-items: center;
       justify-content: space-between;
     }
-    header img.logo {
-      height: 60px;
-    }
-    nav a {
-      margin-left: 2rem;
-      text-decoration: none;
-      color: #3d5a6c;
-      font-weight: bold;
-    }
+    header img.logo { height: 60px; }
+    nav a { margin-left: 1.2rem; text-decoration: none; color: #3d5a6c; font-weight: bold; }
     .hero {
       background-image: url('Banniere_Pastel_JSKPeople_HautDroite.png');
       background-size: cover;
       background-position: center;
-      padding: 6rem 2rem;
+      padding: 5.5rem 2rem;
       text-align: left;
     }
-    .hero h1 {
-      color: #3d5a6c;
-      font-size: 3rem;
-      margin: 0;
+    .hero h1 { color: #3d5a6c; font-size: 2.8rem; margin: 0; }
+
+    .section { padding: 3.2rem 2rem; max-width: 1100px; margin: auto; }
+    .section h2 { color: #ef8a5a; font-size: 1.9rem; margin-bottom: 8px; }
+    .section ul { padding-left: 1.2rem; }
+
+    /* Tarifs — cartes */
+    .tarifs { margin-top: 1rem; }
+    .tarifs-intro { color: #444; margin-bottom: 12px; line-height: 1.45; }
+    .tarifs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+      gap: 18px;
+      margin-top: 18px;
     }
-    .section {
-      padding: 4rem 2rem;
-      max-width: 900px;
-      margin: auto;
+    .tarif-card {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.03);
+      display: flex;
+      flex-direction: column;
     }
-    .section h2 {
-      color: #ef8a5a;
-      font-size: 2rem;
-    }
-    .section ul {
-      padding-left: 1.2rem;
-    }
-    .contact {
-      background-color: #fdd9a0;
-      padding: 4rem 2rem;
+    .tarif-card h3 { margin: 6px 0 8px; color: #3d5a6c; font-size: 1.05rem; }
+    .tag { display:inline-block; font-size:0.9rem; padding:6px 8px; background:#fafafa; border-radius:8px; margin-bottom:8px; color:#555; }
+    .price { font-size: 1.5rem; font-weight: 800; color: #222; margin: 12px 0; }
+    .tarif-list { margin: 8px 0 12px 0; padding-left: 1rem; color: #444; }
+    .tarif-list li { margin-bottom: 6px; }
+    .meta { font-size: 0.95rem; color: #555; margin-top: 8px; }
+    .note-small { font-size: 0.92rem; color: #555; margin-top: 12px; }
+    .featured { border: 2px solid #ffb347; transform: translateY(-6px); box-shadow: 0 10px 28px rgba(255,179,71,0.08); }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 16px;
+      background: #0070f3;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 700;
+      margin-top: 10px;
       text-align: center;
     }
-    .contact h2 {
-      color: #3d5a6c;
+    .btn:hover { background: #005bb5; }
+
+    /* PDF button */
+    .pdf-actions { margin-top: 14px; display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+    .btn-secondary {
+      display:inline-block;
+      padding:10px 14px;
+      background:#555;
+      color:#fff; border-radius:8px; text-decoration:none; font-weight:700;
     }
-    .contact p {
-      font-size: 1.2rem;
-      margin: 0.5rem 0;
+    .btn-secondary:hover { background:#333; }
+
+    @media (max-width:720px) {
+      .hero h1 { font-size: 2rem; padding-right: 1rem; }
+      .section { padding: 2rem 1rem; }
     }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background-color: #d5ecec;
-      color: #555;
+
+    /* petit style pour l'impression (optionnel) */
+    @media print {
+      .btn, .btn-secondary, .pdf-actions { display:none; }
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="logo-cercle-insta.png" alt="Logo JSK People" class="logo">
+    <img src="logo cercle insta.png" alt="Logo JSK People" class="logo" />
     <nav>
       <a href="#services">Services</a>
       <a href="#apropos">Qui suis-je</a>
       <a href="#approche">Ma méthode</a>
+      <a href="#tarifs">Tarifs</a>
     </nav>
   </header>
 
@@ -102,44 +171,183 @@
     <h2>Qui suis-je ?</h2>
     <p>Je suis <strong>Jessica Klersy</strong>, fondatrice de JSK People.</p>
     <p>Forte de plus de <strong>10 ans d'expérience managériale dans le commerce</strong>, en tant que directrice de magasins, j’ai appris à gérer des équipes sur le terrain, à faire face aux enjeux humains concrets, et à faire grandir les collaborateurs dans des contextes parfois complexes. Cette réalité de terrain, je la connais. Et c’est justement ce qui m’a donné envie d’aller plus loin.</p>
-    <p>J’ai opéré une <strong>reconversion dans les Ressources Humaines</strong> en préparant une <strong>Licence Droit, Économie et RH</strong>, avec un objectif clair : apporter une approche humaine, concrète et stratégique aux entreprises qui souhaitent progresser sans se perdre dans la complexité administrative.</p>
-    <p>Aujourd’hui, j’accompagne les managers, dirigeants et équipes RH dans le développement d’un cadre de travail clair, sain et porteur de sens. Je mets mes compétences au service de l'amélioration du climat social, du développement des compétences, de l’accompagnement managérial et de la structuration RH sur-mesure.</p>
-    <p>Mon style : de la bienveillance, du pragmatisme, de l’écoute active et une volonté forte que tout le monde soit gagnant — l'entreprise comme les collaborateurs.</p>
-    <p>J’ai eu la chance d’intervenir dans des environnements variés : <strong>BTP, commerces, artisans, entreprises familiales ou en croissance</strong>, et je m’adapte à chaque culture avec authenticité.</p>
+    <p>J’ai opéré une <strong>reconversion dans les Ressources Humaines</strong>, avec un objectif clair : apporter une approche humaine, concrète et stratégique aux entreprises qui souhaitent progresser sans se perdre dans la complexité administrative.</p>
+    <p>J’accompagne les managers, dirigeants et équipes RH dans la mise en place d’un cadre de travail clair, sain et porteur de sens.</p>
+    <p>J’interviens sur l’accompagnement managérial, la structuration RH sur-mesure (artisans, TPE, entreprises sans RH), l’amélioration du climat social et le développement des compétences.</p>
+    <p>Mon expertise couvre la posture et la communication managériale, la préparation et conduite des entretiens, la clarification des rôles et responsabilités, l’engagement collaborateur et l’appui à la communication interne, à travers des ateliers RH, du coaching managérial et des actions concrètes adaptées au terrain.</p>
   </section>
 
   <section id="approche" class="section">
     <h2>Comment je procède</h2>
-    <p>Mon approche repose sur l’écoute active, la co-construction et l’impact concret. Chaque mission débute par une phase de diagnostic approfondi pour identifier les leviers d’action les plus adaptés à votre culture et vos objectifs. Je travaille main dans la main avec les dirigeants, RH et managers pour transformer les idées en actions durables.</p>
+    <div class="table-wrap">
+      <table class="approche-table" aria-label="Plan d'intervention JSK People">
+        <thead>
+          <tr>
+            <th>Phase</th>
+            <th>Période estimée</th>
+            <th>Actions clés</th>
+            <th>Objectifs</th>
+            <th>Livrables / points de contrôle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Cadrage initial</strong></td>
+            <td>Semaine 0</td>
+            <td>Définition du périmètre, des attentes et contraintes, validation du calendrier</td>
+            <td>Aligner les parties prenantes et sécuriser le cadre</td>
+            <td>Objectifs partagés, planning global validé</td>
+          </tr>
+          <tr>
+            <td><strong>Diagnostic & analyse</strong></td>
+            <td>Semaines 1 à 2</td>
+            <td>Entretiens dirigeants/managers/équipes, analyse du climat social et des pratiques</td>
+            <td>Identifier leviers, freins et priorités</td>
+            <td>Diagnostic synthétique, restitution orale</td>
+          </tr>
+          <tr>
+            <td><strong>Définition des objectifs & plan d’actions</strong></td>
+            <td>Semaine 3</td>
+            <td>Co-construction des objectifs, priorisation des actions, définition des indicateurs</td>
+            <td>Transformer le diagnostic en actions concrètes</td>
+            <td>Plan d’actions, indicateurs, rétro-planning</td>
+          </tr>
+          <tr>
+            <td><strong>Déploiement & accompagnement terrain</strong></td>
+            <td>Mois 1 à 3 (ou + selon périmètre)</td>
+            <td>Coaching managérial, ateliers RH, structuration des pratiques</td>
+            <td>Mettre en œuvre les actions et accompagner les équipes</td>
+            <td>Actions déployées, outils opérationnels</td>
+          </tr>
+          <tr>
+            <td><strong>Suivi & points d’avancement</strong></td>
+            <td>Toutes les 2 à 4 semaines</td>
+            <td>Analyse de l’avancée, retours terrain, ajustements opérationnels</td>
+            <td>Sécuriser l’efficacité et l’adhésion</td>
+            <td>Comptes rendus, ajustements validés</td>
+          </tr>
+          <tr>
+            <td><strong>Ajustements & réadaptation stratégique</strong></td>
+            <td>En continu</td>
+            <td>Révision des priorités, adaptation des actions si besoin</td>
+            <td>Rester aligné avec la réalité terrain</td>
+            <td>Plan ajusté, actions optimisées</td>
+          </tr>
+          <tr>
+            <td><strong>Bilan & pérennisation</strong></td>
+            <td>Dernière semaine</td>
+            <td>Évaluation des résultats, capitalisation, recommandations</td>
+            <td>Ancrer les pratiques dans la durée</td>
+            <td>Bilan final, feuille de route autonome</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Bouton de téléchargement -->
+    <a id="download-plan" class="btn" href="Plan_Intervention_JSKPeople.pdf" download aria-label="Télécharger le plan d'intervention en PDF">Télécharger le plan (PDF)</a>
+    <span class="download-note note-small">Le fichier sera téléchargé si présent sur le site. Si le téléchargement échoue, vérifiez que le PDF est bien placé à l'emplacement indiqué.</span>
+
+  </section>
+
+  <!-- Section Tarifs -->
+  <section id="tarifs" class="section tarifs" aria-label="Tarifs et accompagnements">
+    <h2>Mes accompagnements & tarifs</h2>
+
+    <p class="tarifs-intro">
+      Chaque mission est construite sur mesure, en fonction de votre réalité terrain, de votre culture d’entreprise et de vos enjeux humains.
+      Les tarifs ci-dessous sont indiqués à titre de repère et font l’objet d’un devis personnalisé après un échange de cadrage gratuit.
+    </p>
+
+    <div class="pdf-actions" style="justify-content:space-between;">
+      <div>
+        <a id="download-fixed" class="btn" href="Plan_Tarifs.pdf" download>Télécharger le PDF (si présent)</a>
+        <a id="gen-pdf" class="btn-secondary" href="#" role="button">Générer le PDF (instantané)</a>
+      </div>
+      <div style="font-size:0.95rem;color:#444;">Besoin d'un devis ? <a class="btn" href="mailto:jessica@jskpeople.fr?subject=Demande%20de%20devis">Demander un devis</a></div>
+    </div>
+
+    <div id="tarifs-cards" class="tarifs-grid" style="margin-top:14px;">
+      <!-- Offre 1 ESSENTIEL -->
+      <article class="tarif-card" aria-labelledby="offre-essentiel">
+        <div class="tag">🌱 Offre 1 — <strong>ESSENTIEL</strong></div>
+        <h3 id="offre-essentiel">Clarifier, apaiser, structurer</h3>
+        <p class="meta">Pour dirigeants et managers souhaitant poser un cadre clair et améliorer rapidement le climat de travail.</p>
+
+        <ul class="tarif-list">
+          <li><strong>Inclus :</strong></li>
+          <li>Diagnostic RH & managérial</li>
+          <li>Analyse du climat social et des pratiques</li>
+          <li>Restitution + recommandations opérationnelles</li>
+          <li>Plan d’actions priorisé</li>
+        </ul>
+
+        <div class="meta"><strong>Durée :</strong> 1 à 2 semaines<br><strong>Temps d’intervention :</strong> 1,5 à 2 jours</div>
+
+        <div class="price">À partir de <strong>900 € HT</strong></div>
+
+        <a class="btn" href="mailto:jessica@jskpeople.fr?subject=Demande%20Offre%20Essentiel">Demander un devis</a>
+      </article>
+
+      <!-- Offre 2 STRUCTURE (mise en avant) -->
+      <article class="tarif-card featured" aria-labelledby="offre-structure">
+        <div class="tag">🚀 Offre 2 — <strong>STRUCTURE</strong></div>
+        <h3 id="offre-structure">Accompagner et faire évoluer durablement</h3>
+        <p class="meta">Pour entreprises souhaitant structurer leur management et leurs pratiques RH.</p>
+
+        <ul class="tarif-list">
+          <li><strong>Inclus :</strong></li>
+          <li>Diagnostic RH & managérial</li>
+          <li>Co-construction du plan d’actions et rétro-planning</li>
+          <li>Accompagnement managérial (coaching / ateliers)</li>
+          <li>Structuration RH adaptée (rôles, règles, entretiens)</li>
+          <li>Points d’avancement et ajustements</li>
+        </ul>
+
+        <div class="meta"><strong>Durée :</strong> 3 mois<br><strong>Rythme :</strong> 1 à 2 jours / mois</div>
+
+        <div class="price">À partir de <strong>2 400 € HT</strong></div>
+
+        <a class="btn" href="mailto:jessica@jskpeople.fr?subject=Demande%20Offre%20Structure">Demander un devis</a>
+      </article>
+
+      <!-- Offre 3 PARTENAIRE RH -->
+      <article class="tarif-card" aria-labelledby="offre-partenaire">
+        <div class="tag">🤝 Offre 3 — <strong>PARTENAIRE RH</strong></div>
+        <h3 id="offre-partenaire">Sécuriser, soutenir, pérenniser</h3>
+        <p class="meta">Pour artisans, TPE et PME sans RH interne souhaitant un appui régulier et de confiance.</p>
+
+        <ul class="tarif-list">
+          <li><strong>Inclus :</strong></li>
+          <li>Appui RH externalisé</li>
+          <li>Accompagnement dirigeants & managers</li>
+          <li>Gestion de situations sensibles (tensions, recadrages, organisation)</li>
+          <li>Ajustement des stratégies en fonction du terrain</li>
+          <li>Suivi continu et disponibilité</li>
+        </ul>
+
+        <div class="meta"><strong>Durée :</strong> 6 mois<br><strong>Rythme :</strong> intervention régulière définie ensemble</div>
+
+        <div class="price">À partir de <strong>1 200 € HT / mois</strong></div>
+
+        <a class="btn" href="mailto:jessica@jskpeople.fr?subject=Demande%20Offre%20Partenaire%20RH">Demander un devis</a>
+      </article>
+    </div>
+
+    <p class="note-small">Tarifs indicatifs — devis personnalisé après échange de cadrage gratuit.</p>
   </section>
 
   <section class="section">
     <h2>Compétences & Réalisations</h2>
     <ul>
-      <li>+10 ans d’expérience managériale en tant que directrice de magasins</li>
-      <li>Licence Droit, Économie & RH (reconversion dans les ressources humaines)</li>
-      <li>Double vision : terrain & stratégie</li>
-      <li>Expérience dans les environnements BTP, commerce, artisanat, TPE/PME</li>
-      <li>Forte capacité d’écoute, d’analyse et de structuration</li>
-      <li>Leadership bienveillant, basé sur la confiance et la responsabilité</li>
-      <li>Gestion des équipes, résolution de tensions, valorisation des compétences</li>
-      <li>Création de cadres RH simples, humains et adaptés aux réalités opérationnelles</li>
-      <li>Accompagnement dans des situations complexes avec tact et efficacité</li>
-    </ul>
-  </section>
-
-  <section class="section">
-    <h2>Actions sur lesquelles j'interviens</h2>
-    <ul>
-      <li>Soutien aux managers : posture, communication, gestion d’équipe</li>
-      <li>Aide à la préparation et à la conduite des entretiens (annuels, pros, recadrage)</li>
-      <li>Diagnostic & amélioration du climat social</li>
-      <li>Développement de la culture managériale</li>
-      <li>Structuration RH pour artisans, TPE, entreprises sans RH interne</li>
-      <li>Définition ou clarification du cadre de travail : rôles, règles, responsabilités</li>
-      <li>Ateliers RH autour du sens au travail, de l’écoute, de l’évolution</li>
-      <li>Programmes de montée en compétences et coaching managérial</li>
-      <li>Appui à la communication interne et à l'engagement collaborateur</li>
+      <li><strong>+10 ans d’expérience managériale :</strong> pilotage de magasins, management d’équipes pluridisciplinaires, atteinte des objectifs économiques tout en maintenant un climat social stable et engagé.</li>
+      <li><strong>Double vision terrain & stratégie :</strong> capacité à intervenir opérationnellement sur le quotidien des équipes tout en structurant des décisions managériales alignées avec les enjeux business.</li>
+      <li><strong>Expérience BTP, commerce, artisanat, TPE/PME :</strong> accompagnement de structures aux réalités opérationnelles fortes, avec des solutions RH concrètes, applicables immédiatement et adaptées aux contraintes du terrain.</li>
+      <li><strong>Capacité d’écoute, d’analyse et de structuration :</strong> réalisation de diagnostics managériaux et RH permettant d’identifier les points de tension, de clarifier les priorités et de construire des plans d’actions réalistes.</li>
+      <li><strong>Leadership bienveillant et responsabilisant :</strong> instauration de relations de confiance, développement de l’autonomie des managers et responsabilisation des équipes dans un cadre clair et sécurisant.</li>
+      <li><strong>Gestion d’équipes et résolution de tensions :</strong> intervention dans des situations de conflits ou de démotivation, avec des actions ciblées favorisant l’apaisement, la reprise du dialogue et la performance collective.</li>
+      <li><strong>Création de cadres RH simples et humains :</strong> mise en place d’outils RH accessibles (rôles, règles, entretiens, process) facilitant la gestion quotidienne sans alourdir l’organisation.</li>
+      <li><strong>Accompagnement de situations complexes :</strong> gestion de contextes sensibles (restructuration, conflits, recadrages, changements organisationnels) avec tact, efficacité et respect des personnes.</li>
     </ul>
   </section>
 
@@ -153,5 +361,95 @@
   <footer>
     <p>&copy; 2025 JSK People - Tous droits réservés</p>
   </footer>
+
+  <!-- Librairies pour génération PDF côté client -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNa5jT8wjI9pX6g4+UKB0xq+u0Vqf/3g0a6i2+8u1nHcJ3ft0qE3X4qG3+3qgc0q6E7l4h1YqGqGYPqV3xwbwQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" integrity="sha512-YZb4QXg38Gm3s7UKcX0j8tKxOQb6m7pF4J2g2gk0aFQ9u8x7dV1mLQv8pG9m8c7Hf1zN9t8Y0v7c2Gq3h6XQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script>
+    // Génération PDF côté client : capture la section #tarifs et crée un PDF A4
+    (function(){
+      const genBtn = document.getElementById('gen-pdf');
+      const fixedBtn = document.getElementById('download-fixed');
+
+      async function captureAndDownload() {
+        const el = document.getElementById('tarifs');
+        if (!el) return alert('Section tarifs introuvable.');
+
+        // Ajout d'une classe temporaire pour améliorer rendu (facultatif)
+        const opts = { scale: 2, useCORS: true, allowTaint: false };
+
+        try {
+          const canvas = await html2canvas(el, opts);
+          const imgData = canvas.toDataURL('image/png');
+
+          const { jsPDF } = window.jspdf;
+          // Portrait A4 en mm
+          const pdf = new jsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
+          const pageWidth = pdf.internal.pageSize.getWidth();
+          const pageHeight = pdf.internal.pageSize.getHeight();
+
+          // Image dimensions in mm
+          const imgProps = {
+            width: (canvas.width * 25.4) / (window.devicePixelRatio * 96), // convert px to mm
+            height: (canvas.height * 25.4) / (window.devicePixelRatio * 96)
+          };
+
+          // Si l'image est plus grande qu'une page, on la découpe en pages
+          let position = 0;
+          const ratio = imgProps.width / pageWidth;
+          const renderWidth = pageWidth;
+          const renderHeight = imgProps.height / ratio;
+
+          if (renderHeight <= pageHeight) {
+            pdf.addImage(imgData, 'PNG', 0, 0, renderWidth, renderHeight);
+          } else {
+            // multiple pages
+            let remainingHeight = renderHeight;
+            let pageCanvas = document.createElement('canvas');
+            const pageCtx = pageCanvas.getContext('2d');
+
+            // calcul en pixels pour découpe
+            const pxPerMm = (window.devicePixelRatio * 96) / 25.4;
+            const pageHpx = Math.floor(pageHeight * pxPerMm);
+            const totalHpx = canvas.height;
+
+            pageCanvas.width = canvas.width;
+            pageCanvas.height = Math.min(pageHpx, totalHpx);
+
+            let y = 0;
+            while (y < totalHpx) {
+              pageCtx.clearRect(0, 0, pageCanvas.width, pageCanvas.height);
+              pageCtx.drawImage(canvas, 0, y, canvas.width, pageCanvas.height, 0, 0, canvas.width, pageCanvas.height);
+              const pageData = pageCanvas.toDataURL('image/png');
+              if (y > 0) pdf.addPage();
+              pdf.addImage(pageData, 'PNG', 0, 0, renderWidth, (pageCanvas.height * 25.4) / (pxPerMm * ratio));
+              y += pageCanvas.height;
+            }
+          }
+
+          pdf.save('JSKPeople_Tarifs.pdf');
+        } catch (err) {
+          console.error(err);
+          alert('Erreur lors de la génération du PDF. Vous pouvez télécharger le PDF fixe si présent ou contacter l’administrateur.');
+        }
+      }
+
+      if (genBtn) {
+        genBtn.addEventListener('click', function(e){
+          e.preventDefault();
+          genBtn.textContent = 'Génération en cours…';
+          genBtn.setAttribute('aria-disabled', 'true');
+          captureAndDownload().finally(() => {
+            genBtn.textContent = 'Générer le PDF (instantané)';
+            genBtn.removeAttribute('aria-disabled');
+          });
+        });
+      }
+
+      // Si tu veux que le bouton fixe propose un fallback, il est déjà en href vers Plan_Tarifs.pdf
+      // Tu peux déposer un PDF à la racine du site nommé Plan_Tarifs.pdf pour que le lien fonctionne.
+    })();
+  </script>
 </body>
 </html>
