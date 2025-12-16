@@ -1,74 +1,87 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>JSK People</title>
+
+  <!-- JSON-LD pour aider Google à comprendre les offres (prix indicatifs) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "OfferCatalog",
+    "name": "Offres JSK People",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "name": "ESSENTIEL",
+        "description": "Clarifier, apaiser, structurer — Diagnostic RH & managérial, restitution, plan d'actions",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "price": 900,
+          "priceCurrency": "EUR",
+          "valueAddedTaxIncluded": false
+        }
+      },
+      {
+        "@type": "Offer",
+        "name": "STRUCTURE",
+        "description": "Accompagner et faire évoluer durablement — plan d'actions, ateliers, accompagnement managérial",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "price": 2400,
+          "priceCurrency": "EUR",
+          "valueAddedTaxIncluded": false
+        }
+      },
+      {
+        "@type": "Offer",
+        "name": "PARTENAIRE RH",
+        "description": "Appui RH externalisé, accompagnement dirigeant et suivi continu",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "price": 1200,
+          "priceCurrency": "EUR",
+          "valueAddedTaxIncluded": false
+        }
+      }
+    ]
+  }
+  </script>
+
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #fefefe;
-      color: #333;
+    body { margin:0; font-family: 'Segoe UI', sans-serif; background:#fefefe; color:#333; }
+    header { background:linear-gradient(to right,#fdd9a0,#d5ecec); padding:1.5rem; display:flex; align-items:center; justify-content:space-between; }
+    header img.logo{height:60px}
+    nav a{margin-left:1.2rem;text-decoration:none;color:#3d5a6c;font-weight:700}
+    .hero{background-image:url('Banniere_Pastel_JSKPeople_HautDroite.png');background-size:cover;background-position:center;padding:5.5rem 2rem;text-align:left}
+    .hero h1{color:#3d5a6c;font-size:2.8rem;margin:0}
+    .section{padding:3.2rem 2rem;max-width:1100px;margin:auto}
+    .section h2{color:#ef8a5a;font-size:1.9rem;margin-bottom:8px}
+
+    /* Table tarifs */
+    .pricing-table-wrap{overflow:auto;margin-top:18px;background:#fff;border-radius:12px;border:1px solid #eee;padding:12px}
+    table.pricing{width:100%;border-collapse:collapse;text-align:left}
+    table.pricing thead th{background:#f7f8fb;padding:14px;font-size:1rem;color:#3d5a6c;border-bottom:1px solid #e6e9ef}
+    table.pricing tbody td{padding:14px;border-bottom:1px dashed #eee;vertical-align:top}
+    table.pricing .price{font-weight:800;font-size:1.2rem;color:#222}
+    table.pricing .featured-col{background:linear-gradient(180deg,#fff8f0,#fff);border-left:3px solid #ffb347}
+    .cta-btn{display:inline-block;padding:8px 12px;background:#0070f3;color:#fff;border-radius:8px;text-decoration:none;font-weight:700}
+
+    /* Responsive: stack columns on small screens */
+    @media (max-width:880px){
+      table.pricing, table.pricing thead, table.pricing tbody, table.pricing th, table.pricing td, table.pricing tr{display:block}
+      table.pricing thead{float:left}
+      table.pricing thead th{display:none}
+      table.pricing tr{margin-bottom:12px;border:1px solid #eee;border-radius:10px;padding:12px}
+      table.pricing td{display:flex;justify-content:space-between;padding:8px}
+      table.pricing td.label{font-weight:700;color:#555;width:55%}
+      table.pricing td.value{width:45%;text-align:right}
+      .pricing-table-wrap{padding:6px}
     }
-    header {
-      background: linear-gradient(to right, #fdd9a0, #d5ecec);
-      padding: 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    header img.logo {
-      height: 60px;
-    }
-    nav a {
-      margin-left: 2rem;
-      text-decoration: none;
-      color: #3d5a6c;
-      font-weight: bold;
-    }
-    .hero {
-      background-image: url('Banniere_Pastel_JSKPeople_HautDroite.png');
-      background-size: cover;
-      background-position: center;
-      padding: 6rem 2rem;
-      text-align: left;
-    }
-    .hero h1 {
-      color: #3d5a6c;
-      font-size: 3rem;
-      margin: 0;
-    }
-    .section {
-      padding: 4rem 2rem;
-      max-width: 900px;
-      margin: auto;
-    }
-    .section h2 {
-      color: #ef8a5a;
-      font-size: 2rem;
-    }
-    .section ul {
-      padding-left: 1.2rem;
-    }
-    .contact {
-      background-color: #fdd9a0;
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-    .contact h2 {
-      color: #3d5a6c;
-    }
-    .contact p {
-      font-size: 1.2rem;
-      margin: 0.5rem 0;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background-color: #d5ecec;
-      color: #555;
-    }
+
+    /* small helpers */
+    .note-small{font-size:0.92rem;color:#555;margin-top:12px}
   </style>
 </head>
 <body>
@@ -78,6 +91,7 @@
       <a href="#services">Services</a>
       <a href="#apropos">Qui suis-je</a>
       <a href="#approche">Ma méthode</a>
+      <a href="#tarifs">Tarifs</a>
     </nav>
   </header>
 
@@ -87,59 +101,151 @@
 
   <section id="services" class="section">
     <h2>Nos services</h2>
-    <p>JSK People aide les structures à révéler leur potentiel humain en travaillant sur la qualité du climat social, le développement des compétences, l’accompagnement des managers et le sens donné au travail. Nous intervenons en soutien opérationnel ou stratégique sur :</p>
+    <p>JSK People aide les structures à révéler leur potentiel humain en travaillant sur la qualité du climat social, le développement des compétences, l’accompagnement des managers et le sens donné au travail.</p>
     <ul>
-      <li>Le développement du leadership et des compétences managériales</li>
-      <li>La conduite des entretiens annuels ou professionnels</li>
-      <li>L’amélioration de la communication interne</li>
-      <li>Le renforcement de l’engagement des équipes</li>
-      <li>La mise en place d’un cadre RH aligné avec vos valeurs</li>
+      <li>Développement du leadership et des compétences managériales</li>
+      <li>Conduite des entretiens annuels ou professionnels</li>
+      <li>Amélioration de la communication interne</li>
+      <li>Renforcement de l’engagement des équipes</li>
+      <li>Mise en place d’un cadre RH aligné avec vos valeurs</li>
     </ul>
-    <p>Des études récentes démontrent que le bien-être au travail améliore significativement la productivité et la fidélisation des talents. Chez JSK People, nous en faisons un levier de performance durable.</p>
   </section>
 
   <section id="apropos" class="section">
     <h2>Qui suis-je ?</h2>
     <p>Je suis <strong>Jessica Klersy</strong>, fondatrice de JSK People.</p>
-    <p>Forte de plus de <strong>10 ans d'expérience managériale dans le commerce</strong>, en tant que directrice de magasins, j’ai appris à gérer des équipes sur le terrain, à faire face aux enjeux humains concrets, et à faire grandir les collaborateurs dans des contextes parfois complexes. Cette réalité de terrain, je la connais. Et c’est justement ce qui m’a donné envie d’aller plus loin.</p>
-    <p>J’ai opéré une <strong>reconversion dans les Ressources Humaines</strong> en préparant une <strong>Licence Droit, Économie et RH</strong>, avec un objectif clair : apporter une approche humaine, concrète et stratégique aux entreprises qui souhaitent progresser sans se perdre dans la complexité administrative.</p>
-    <p>Aujourd’hui, j’accompagne les managers, dirigeants et équipes RH dans le développement d’un cadre de travail clair, sain et porteur de sens. Je mets mes compétences au service de l'amélioration du climat social, du développement des compétences, de l’accompagnement managérial et de la structuration RH sur-mesure.</p>
-    <p>Mon style : de la bienveillance, du pragmatisme, de l’écoute active et une volonté forte que tout le monde soit gagnant — l'entreprise comme les collaborateurs.</p>
-    <p>J’ai eu la chance d’intervenir dans des environnements variés : <strong>BTP, commerces, artisans, entreprises familiales ou en croissance</strong>, et je m’adapte à chaque culture avec authenticité.</p>
+    <p>Forte de plus de <strong>10 ans d'expérience managériale</strong> dans le commerce, j'accompagne les managers, dirigeants et équipes RH dans la mise en place d'un cadre de travail clair, sain et porteur de sens.</p>
   </section>
 
   <section id="approche" class="section">
     <h2>Comment je procède</h2>
-    <p>Mon approche repose sur l’écoute active, la co-construction et l’impact concret. Chaque mission débute par une phase de diagnostic approfondi pour identifier les leviers d’action les plus adaptés à votre culture et vos objectifs. Je travaille main dans la main avec les dirigeants, RH et managers pour transformer les idées en actions durables.</p>
+    <div class="table-wrap">
+      <table class="approche-table" aria-label="Plan d'intervention JSK People">
+        <thead>
+          <tr>
+            <th>Phase</th>
+            <th>Période estimée</th>
+            <th>Actions clés</th>
+            <th>Objectifs</th>
+            <th>Livrables / points de contrôle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Cadrage initial</strong></td>
+            <td>Semaine 0</td>
+            <td>Définition du périmètre, des attentes et contraintes, validation du calendrier</td>
+            <td>Aligner les parties prenantes et sécuriser le cadre</td>
+            <td>Objectifs partagés, planning global validé</td>
+          </tr>
+          <tr>
+            <td><strong>Diagnostic & analyse</strong></td>
+            <td>Semaines 1 à 2</td>
+            <td>Entretiens dirigeants/managers/équipes, analyse du climat social et des pratiques</td>
+            <td>Identifier leviers, freins et priorités</td>
+            <td>Diagnostic synthétique, restitution orale</td>
+          </tr>
+          <tr>
+            <td><strong>Définition des objectifs & plan d’actions</strong></td>
+            <td>Semaine 3</td>
+            <td>Co-construction des objectifs, priorisation des actions, définition des indicateurs</td>
+            <td>Transformer le diagnostic en actions concrètes</td>
+            <td>Plan d’actions, indicateurs, rétro-planning</td>
+          </tr>
+          <tr>
+            <td><strong>Déploiement & accompagnement terrain</strong></td>
+            <td>Mois 1 à 3 (ou + selon périmètre)</td>
+            <td>Coaching managérial, ateliers RH, structuration des pratiques</td>
+            <td>Mettre en œuvre les actions et accompagner les équipes</td>
+            <td>Actions déployées, outils opérationnels</td>
+          </tr>
+          <tr>
+            <td><strong>Suivi & points d’avancement</strong></td>
+            <td>Toutes les 2 à 4 semaines</td>
+            <td>Analyse de l’avancée, retours terrain, ajustements opérationnels</td>
+            <td>Sécuriser l’efficacité et l’adhésion</td>
+            <td>Comptes rendus, ajustements validés</td>
+          </tr>
+          <tr>
+            <td><strong>Bilan & pérennisation</strong></td>
+            <td>Dernière semaine</td>
+            <td>Évaluation des résultats, capitalisation, recommandations</td>
+            <td>Ancrer les pratiques dans la durée</td>
+            <td>Bilan final, feuille de route autonome</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Section Tarifs: tableau comparatif -->
+  <section id="tarifs" class="section">
+    <h2>Mes accompagnements & tarifs</h2>
+    <p class="note-small">Tarifs indicatifs — devis personnalisé après échange de cadrage gratuit.</p>
+
+    <div class="pricing-table-wrap" role="table" aria-label="Tableau des tarifs JSK People">
+      <table class="pricing" role="grid">
+        <thead>
+          <tr>
+            <th scope="col">Caractéristiques</th>
+            <th scope="col">ESSENTIEL</th>
+            <th scope="col" class="featured-col">STRUCTURE<br><small style="font-weight:600;color:#555">(recommandé)</small></th>
+            <th scope="col">PARTENAIRE RH</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="label">Description</td>
+            <td>Diagnostic RH & restitution. Plan d’actions priorisé.</td>
+            <td class="featured-col">Co-construction du plan, accompagnement managérial, structuration RH.</td>
+            <td>Appui RH externalisé, suivi régulier et interventions opérationnelles.</td>
+          </tr>
+
+          <tr>
+            <td class="label">Inclus</td>
+            <td>Diagnostic, analyse du climat, restitution, recommandations.</td>
+            <td class="featured-col">Diagnostic, plan d’actions, ateliers, coaching, structuration des pratiques, points d’avancement.</td>
+            <td>Appui RH, accompagnement dirigeants, gestion des situations sensibles, suivi continu.</td>
+          </tr>
+
+          <tr>
+            <td class="label">Durée / rythme</td>
+            <td>1–2 semaines (1,5–2 jours)</td>
+            <td class="featured-col">3 mois (1 à 2 jours / mois)</td>
+            <td>6 mois (rythme défini ensemble)</td>
+          </tr>
+
+          <tr>
+            <td class="label">Tarif (À partir de)</td>
+            <td class="price">900 € HT</td>
+            <td class="price featured-col">2 400 € HT</td>
+            <td class="price">1 200 € HT / mois</td>
+          </tr>
+
+          <tr>
+            <td class="label">Call-to-action</td>
+            <td><a class="cta-btn" href="mailto:jessica@jskpeople.fr?subject=Demande%20Offre%20Essentiel">Demander un devis</a></td>
+            <td class="featured-col"><a class="cta-btn" href="mailto:jessica@jskpeople.fr?subject=Demande%20Offre%20Structure">Demander un devis</a></td>
+            <td><a class="cta-btn" href="mailto:jessica@jskpeople.fr?subject=Demande%20Offre%20Partenaire%20RH">Demander un devis</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="note-small">Affichage responsive : sur mobile, les lignes se présentent en cartes empilées pour une lecture optimisée.</p>
   </section>
 
   <section class="section">
     <h2>Compétences & Réalisations</h2>
     <ul>
-      <li>+10 ans d’expérience managériale en tant que directrice de magasins</li>
-      <li>Licence Droit, Économie & RH (reconversion dans les ressources humaines)</li>
-      <li>Double vision : terrain & stratégie</li>
-      <li>Expérience dans les environnements BTP, commerce, artisanat, TPE/PME</li>
-      <li>Forte capacité d’écoute, d’analyse et de structuration</li>
-      <li>Leadership bienveillant, basé sur la confiance et la responsabilité</li>
-      <li>Gestion des équipes, résolution de tensions, valorisation des compétences</li>
-      <li>Création de cadres RH simples, humains et adaptés aux réalités opérationnelles</li>
-      <li>Accompagnement dans des situations complexes avec tact et efficacité</li>
-    </ul>
-  </section>
-
-  <section class="section">
-    <h2>Actions sur lesquelles j'interviens</h2>
-    <ul>
-      <li>Soutien aux managers : posture, communication, gestion d’équipe</li>
-      <li>Aide à la préparation et à la conduite des entretiens (annuels, pros, recadrage)</li>
-      <li>Diagnostic & amélioration du climat social</li>
-      <li>Développement de la culture managériale</li>
-      <li>Structuration RH pour artisans, TPE, entreprises sans RH interne</li>
-      <li>Définition ou clarification du cadre de travail : rôles, règles, responsabilités</li>
-      <li>Ateliers RH autour du sens au travail, de l’écoute, de l’évolution</li>
-      <li>Programmes de montée en compétences et coaching managérial</li>
-      <li>Appui à la communication interne et à l'engagement collaborateur</li>
+      <li><strong>+10 ans d’expérience managériale :</strong> pilotage de magasins, management d’équipes pluridisciplinaires, atteinte des objectifs économiques tout en maintenant un climat social stable et engagé.</li>
+      <li><strong>Double vision terrain & stratégie :</strong> capacité à intervenir opérationnellement sur le quotidien des équipes tout en structurant des décisions managériales alignées avec les enjeux business.</li>
+      <li><strong>Expérience BTP, commerce, artisanat, TPE/PME :</strong> accompagnement de structures aux réalités opérationnelles fortes, avec des solutions RH concrètes, applicables immédiatement et adaptées aux contraintes du terrain.</li>
+      <li><strong>Capacité d’écoute, d’analyse et de structuration :</strong> réalisation de diagnostics managériaux et RH permettant d’identifier les points de tension, de clarifier les priorités et de construire des plans d’actions réalistes.</li>
+      <li><strong>Leadership bienveillant et responsabilisant :</strong> instauration de relations de confiance, développement de l’autonomie des managers et responsabilisation des équipes dans un cadre clair et sécurisant.</li>
+      <li><strong>Gestion d’équipes et résolution de tensions :</strong> intervention dans des situations de conflits ou de démotivation, avec des actions ciblées favorisant l’apaisement, la reprise du dialogue et la performance collective.</li>
+      <li><strong>Création de cadres RH simples et humains :</strong> mise en place d’outils RH accessibles (rôles, règles, entretiens, process) facilitant la gestion quotidienne sans alourdir l’organisation.</li>
+      <li><strong>Accompagnement de situations complexes :</strong> gestion de contextes sensibles (restructuration, conflits, recadrages, changements organisationnels) avec tact, efficacité et respect des personnes.</li>
     </ul>
   </section>
 
@@ -153,5 +259,6 @@
   <footer>
     <p>&copy; 2025 JSK People - Tous droits réservés</p>
   </footer>
+
 </body>
 </html>
